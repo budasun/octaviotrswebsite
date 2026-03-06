@@ -31,7 +31,7 @@ const books = [
 
 export function Books() {
   return (
-    <section id="libros" className="bg-background py-20 lg:py-28">
+    <section id="libros" className="bg-background py-10 lg:py-14">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">

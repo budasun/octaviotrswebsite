@@ -14,7 +14,6 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
     nombre: "",
     email: "",
     telefono: "",
-
     edad: "",
     modalidad: "en-linea",
     motivo: "",
@@ -30,7 +29,6 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Prepare data based on user type
     const payload = {
       nombre: formData.nombre,
       email: formData.email,
@@ -55,11 +53,9 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
       })
 
       if (response.ok) {
-        // Show success on button first for better UX
         setIsSubmitting(false)
         setShowButtonSuccess(true)
 
-        // Wait a bit to let the user see the success on the button
         setTimeout(() => {
           setSubmitted(true)
           setShowButtonSuccess(false)
@@ -84,7 +80,7 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
   if (submitted) {
     return (
-      <section id="contacto" className="bg-background py-24">
+      <section id="contacto" className="bg-background pt-4 pb-10">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <div className="rounded-xl border border-border bg-card p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
@@ -106,10 +102,10 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
   }
 
   return (
-    <section id="contacto" className="bg-background py-24">
+    <section id="contacto" className="bg-background pt-6 pb-20">
       <div className="mx-auto max-w-6xl px-6">
-        {/* Header */}
-        <div className="mb-16 text-center">
+        {/* Header con margen reducido */}
+        <div className="mb-8 text-center">
           <Reveal>
             <span className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent uppercase">
               Contacto
@@ -128,7 +124,7 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
           {/* Info column */}
           <div className="md:col-span-2">
             <Reveal delay={200}>
-              <div className="rounded-xl bg-primary p-8 text-primary-foreground">
+              <div className="rounded-xl bg-primary p-8 text-primary-foreground shadow-lg">
                 <h3 className="mb-6 text-xl font-bold">
                   {"Informacion de Contacto"}
                 </h3>
@@ -186,12 +182,12 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
             </Reveal>
           </div>
 
-          {/* Form column */}
+          {/* Form column con Borde Superior de Acento y Sombra Profunda */}
           <div className="md:col-span-3">
             <Reveal delay={400}>
               <form
                 onSubmit={handleSubmit}
-                className="rounded-xl border border-border bg-card p-8"
+                className="rounded-xl border-t-4 border-t-accent border-x border-b border-border bg-card p-8 shadow-xl shadow-accent/5"
               >
                 {/* User Type Switch */}
                 <div className="mb-8 flex rounded-lg bg-muted p-1">
@@ -218,12 +214,8 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2">
-                  {/* Nombre */}
                   <div className="sm:col-span-2">
-                    <label
-                      htmlFor="nombre"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
+                    <label htmlFor="nombre" className="mb-1.5 block text-sm font-medium text-foreground">
                       Nombre completo <span className="text-destructive">*</span>
                     </label>
                     <input
@@ -238,12 +230,8 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
+                    <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
                       Correo electronico <span className="text-destructive">*</span>
                     </label>
                     <input
@@ -257,12 +245,9 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                       className="w-full rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
                   </div>
-                  {/* Telefono */}
+
                   <div>
-                    <label
-                      htmlFor="telefono"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
+                    <label htmlFor="telefono" className="mb-1.5 block text-sm font-medium text-foreground">
                       Telefono <span className="text-destructive">*</span>
                     </label>
                     <input
@@ -277,16 +262,10 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                     />
                   </div>
 
-
-                  {/* Patient specific fields */}
                   {userType === "paciente" && (
                     <>
-                      {/* Edad */}
                       <div>
-                        <label
-                          htmlFor="edad"
-                          className="mb-1.5 block text-sm font-medium text-foreground"
-                        >
+                        <label htmlFor="edad" className="mb-1.5 block text-sm font-medium text-foreground">
                           Edad
                         </label>
                         <input
@@ -302,12 +281,8 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                         />
                       </div>
 
-                      {/* Modalidad */}
                       <div>
-                        <label
-                          htmlFor="modalidad"
-                          className="mb-1.5 block text-sm font-medium text-foreground"
-                        >
+                        <label htmlFor="modalidad" className="mb-1.5 block text-sm font-medium text-foreground">
                           Modalidad preferida
                         </label>
                         <select
@@ -324,16 +299,9 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                     </>
                   )}
 
-                  {/* Motivo */}
                   <div className="sm:col-span-2">
-                    <label
-                      htmlFor="motivo"
-                      className="mb-1.5 block text-sm font-medium text-foreground"
-                    >
-                      {userType === "paciente"
-                        ? "Por qué buscas terapia?"
-                        : "Motivo de la consulta"}{" "}
-                      <span className="text-destructive">*</span>
+                    <label htmlFor="motivo" className="mb-1.5 block text-sm font-medium text-foreground">
+                      {userType === "paciente" ? "Por qué buscas terapia?" : "Motivo de la consulta"} <span className="text-destructive">*</span>
                     </label>
                     <textarea
                       id="motivo"
@@ -342,16 +310,9 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                       rows={5}
                       value={formData.motivo}
                       onChange={handleChange}
-                      placeholder={
-                        userType === "paciente"
-                          ? "Cuentame brevemente tu situacion y que te motiva a buscar apoyo psicologico..."
-                          : "Describe brevemente el caso, servicio requerido o motivo de colaboracion..."
-                      }
+                      placeholder={userType === "paciente" ? "Cuentame brevemente tu situacion..." : "Describe el caso o motivo de colaboracion..."}
                       className="w-full resize-none rounded-md border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                     />
-                    <p className="mt-1.5 text-xs text-muted-foreground">
-                      Esta informacion es confidencial y me ayuda a entender mejor tu solicitud.
-                    </p>
                   </div>
                 </div>
 
@@ -363,18 +324,10 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
                     : "bg-accent text-accent-foreground hover:bg-accent/90"
                     } disabled:opacity-70 disabled:cursor-not-allowed`}
                 >
-                  {isSubmitting ? (
-                    "Enviando..."
-                  ) : showButtonSuccess ? (
-                    <>
-                      ¡Enviado con éxito!
-                      <CheckCircle className="h-4 w-4" />
-                    </>
+                  {isSubmitting ? "Enviando..." : showButtonSuccess ? (
+                    <>¡Enviado con éxito! <CheckCircle className="h-4 w-4" /></>
                   ) : (
-                    <>
-                      Enviar Solicitud
-                      <Send className="h-4 w-4" />
-                    </>
+                    <>Enviar Solicitud <Send className="h-4 w-4" /></>
                   )}
                 </button>
               </form>
