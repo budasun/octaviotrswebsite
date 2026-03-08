@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react"
 const navLinks = [
   { label: "Inicio", href: "#hero" },
   { label: "Libros", href: "#libros" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Psicométrica IA", href: "#suite-psicometrica" }, // <-- Cambio aplicado aquí
   { label: "Contacto", href: "#contacto" },
 ]
 
