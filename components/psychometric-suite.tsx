@@ -48,47 +48,42 @@ export function PsychometricSuite() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
           {/* ------------------------------------- */}
-          {/* COLUMNA IZQUIERDA: EL MAZO DE CARTAS (6 Imágenes) */}
+          {/* COLUMNA IZQUIERDA: EL MAZO DE CARTAS */}
           {/* ------------------------------------- */}
           <Reveal className="order-2 lg:order-1">
-            <div className="relative w-full aspect-square md:aspect-[4/3] flex items-center justify-center h-[500px] lg:h-[600px]">
+            {/* Ajuste: h-[400px] para móviles, más alto en PC */}
+            <div className="relative w-full aspect-square md:aspect-[4/3] flex items-center justify-center h-[400px] md:h-[500px] lg:h-[600px]">
 
-              {/* Cleaver 1 - Atrás Izquierda */}
               <div className="absolute w-[35%] aspect-[9/16] z-10 transition-all duration-500 hover:scale-[1.5] hover:z-[100] -rotate-12" style={{ top: '5%', left: '5%' }}>
                 <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden border border-border/40 bg-card p-1">
                   <Image src="/images/cleaver1.png" alt="Cleaver AI" fill className="object-cover rounded-lg" />
                 </div>
               </div>
 
-              {/* HTP 1 - Atrás Derecha */}
               <div className="absolute w-[35%] aspect-[9/16] z-10 transition-all duration-500 hover:scale-[1.5] hover:z-[100] rotate-12" style={{ top: '10%', right: '5%' }}>
                 <div className="relative w-full h-full rounded-xl shadow-lg overflow-hidden border border-border/40 bg-card p-1">
                   <Image src="/images/htp1.png" alt="HTP AI" fill className="object-cover rounded-lg" />
                 </div>
               </div>
 
-              {/* Raven 1 - Centro Atrás */}
               <div className="absolute w-[40%] aspect-[9/16] z-20 transition-all duration-500 hover:scale-[1.5] hover:z-[100] rotate-2" style={{ top: '15%', left: '30%' }}>
                 <div className="relative w-full h-full rounded-xl shadow-xl overflow-hidden border border-border/40 bg-card p-1">
                   <Image src="/images/raven1.png" alt="Raven AI" fill className="object-cover rounded-lg" />
                 </div>
               </div>
 
-              {/* Cleaver 2 - Abajo Derecha */}
               <div className="absolute w-[38%] aspect-[9/16] z-30 transition-all duration-500 hover:scale-[1.5] hover:z-[100] rotate-6" style={{ bottom: '10%', right: '10%' }}>
                 <div className="relative w-full h-full rounded-xl shadow-xl overflow-hidden border border-border/40 bg-card p-1">
                   <Image src="/images/cleaver2.png" alt="Cleaver Results" fill className="object-cover rounded-lg" />
                 </div>
               </div>
 
-              {/* Raven 2 - Abajo Izquierda */}
               <div className="absolute w-[38%] aspect-[9/16] z-30 transition-all duration-500 hover:scale-[1.5] hover:z-[100] -rotate-6" style={{ bottom: '15%', left: '10%' }}>
                 <div className="relative w-full h-full rounded-xl shadow-xl overflow-hidden border border-border/40 bg-card p-1">
                   <Image src="/images/raven2.png" alt="Raven Results" fill className="object-cover rounded-lg" />
                 </div>
               </div>
 
-              {/* HTP 2 - Centro Frente (Protagonista inicial) */}
               <div className="absolute w-[42%] aspect-[9/16] z-40 transition-all duration-500 hover:scale-[1.5] hover:z-[100] -rotate-2" style={{ bottom: '0%', left: '29%' }}>
                 <div className="relative w-full h-full rounded-2xl shadow-2xl overflow-hidden border border-border/50 bg-card p-1.5">
                   <Image src="/images/htp2.png" alt="HTP Results" fill className="object-cover rounded-xl" />
@@ -119,13 +114,13 @@ export function PsychometricSuite() {
                 {apps.map((app) => (
                   <div key={app.id} className="group relative bg-white rounded-2xl p-5 border border-sky-100 shadow-sm hover:shadow-md transition-shadow">
 
-                    {/* Fila Superior: Título y Tag */}
-                    <div className="flex justify-between items-start mb-3">
+                    {/* Fila Superior: Título y Tag (Ajuste para móviles: flex-col a flex-row) */}
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-0 mb-3">
                       <div className="flex items-center gap-2">
-                        <app.icon className="h-5 w-5 text-slate-700" />
-                        <h3 className="font-bold text-lg text-slate-900">{app.title}</h3>
+                        <app.icon className="h-5 w-5 text-slate-700 shrink-0" />
+                        <h3 className="font-bold text-lg text-slate-900 leading-tight">{app.title}</h3>
                       </div>
-                      <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider ${app.tagColor}`}>
+                      <span className={`inline-block text-[10px] font-bold px-2.5 py-1 rounded-full border uppercase tracking-wider whitespace-nowrap ${app.tagColor}`}>
                         {app.tag}
                       </span>
                     </div>
@@ -135,23 +130,24 @@ export function PsychometricSuite() {
                       {app.description}
                     </p>
 
-                    {/* Fila Inferior: Tecnologías y Botón */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
-                      <div className="flex gap-2">
+                    {/* Fila Inferior: Tecnologías y Botón (Ajuste para móviles) */}
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-auto">
+                      <div className="flex flex-wrap gap-2">
                         {app.tech.map((t) => (
-                          <span key={t} className="flex items-center text-xs font-medium text-slate-500 bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">
+                          <span key={t} className="flex items-center text-xs font-medium text-slate-500 bg-slate-50 border border-slate-200 px-2 py-1 rounded-md whitespace-nowrap">
                             <Code2 className="h-3 w-3 mr-1" /> {t}
                           </span>
                         ))}
                       </div>
 
+                      {/* Botón que ocupa el 100% en celular y tamaño normal en PC */}
                       <a
                         href={app.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md ${app.btnColor}`}
+                        className={`w-full sm:w-auto inline-flex justify-center items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all shadow-sm hover:shadow-md ${app.btnColor}`}
                       >
-                        <ScanLine className="h-4 w-4" /> Probar
+                        <ScanLine className="h-4 w-4 shrink-0" /> Probar
                       </a>
                     </div>
                   </div>
