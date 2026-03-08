@@ -80,7 +80,8 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
   if (submitted) {
     return (
-      <section id="contacto" className="bg-background pt-4 pb-10">
+      // ESPACIO REDUCIDO: Cambiado de pb-10 a pb-4
+      <section id="contacto" className="bg-background pt-4 pb-4">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <div className="rounded-xl border border-border bg-card p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
@@ -102,7 +103,8 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
   }
 
   return (
-    <section id="contacto" className="bg-background pt-6 pb-20">
+    // ESPACIO REDUCIDO: Cambiado de pb-20 a pb-6
+    <section id="contacto" className="bg-background pt-6 pb-6">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header con margen reducido */}
         <div className="mb-8 text-center">

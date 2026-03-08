@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Books } from "@/components/books"
 import { ObsiAppShowcase } from "@/components/obsiapp-showcase"
+// Ya no importamos PsychometricSuite aquí
 import {
   DeveloperServices,
   ClinicalForensicServices,
@@ -16,24 +17,16 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-
-      {/* 1. Teoría */}
       <Books />
-
-      {/* 2. Práctica Técnica (Apps) */}
       <ObsiAppShowcase />
       <DeveloperServices />
       <TaoShowcase />
 
-      {/* 3. Práctica Profesional (Clínica) */}
+      {/* Todo el bloque clínico, psicométrico y forense ocurrirá aquí adentro */}
       <ClinicalForensicServices />
 
-      {/* 4. Acción (Formulario) */}
       <ContactForm />
-
-      {/* 5. Cierre Final (Resumen de valor) */}
       <HelpSection />
-
       <Footer />
     </main>
   )

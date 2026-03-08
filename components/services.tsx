@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Reveal } from "@/components/reveal"
+import { PsychometricSuite } from "@/components/psychometric-suite" // <-- Importación de tu nueva Suite
 
 const clinicalServices = [
   {
@@ -134,12 +135,14 @@ export function DeveloperServices() {
   )
 }
 
-// PARTE 2: CLÍNICA Y FORENSE (Paddings reducidos para conectar con el Form)
+// PARTE 2: CLÍNICA, SUITE Y FORENSE
 export function ClinicalForensicServices() {
   return (
     <section id="servicios-clinicos" className="bg-background pt-10 lg:pt-14 pb-0">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-16">
+
+        {/* BLOQUE SUPERIOR: TERAPIA CLÍNICA */}
+        <div className="mb-6">
           <Reveal delay={100}>
             <div className="mb-8 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
@@ -157,8 +160,18 @@ export function ClinicalForensicServices() {
             ))}
           </div>
         </div>
+      </div>
 
-        <div className="mb-0">
+      {/* BLOQUE CENTRAL: SUITE PSICOMÉTRICA */}
+      <div className="w-full bg-slate-50 py-6 my-2 border-y border-border/40">
+        <Reveal delay={100}>
+          <PsychometricSuite />
+        </Reveal>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-6">
+        {/* BLOQUE INFERIOR: PERITAJES PSICOLÓGICOS */}
+        <div className="mt-6 mb-0">
           <Reveal delay={100}>
             <div className="mb-8 flex items-center gap-3">
               <div className="h-px flex-1 bg-border" />
@@ -184,7 +197,8 @@ export function ClinicalForensicServices() {
 // PARTE 3: BLOQUE "¿CÓMO PUEDO AYUDARTE?"
 export function HelpSection() {
   return (
-    <section id="ayuda" className="bg-muted/30 py-10 lg:py-14 border-t border-border/40">
+    // ESPACIO REDUCIDO: Cambiado a py-6 para acercarlo al formulario
+    <section id="ayuda" className="bg-muted/30 py-6 border-t border-border/40">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
