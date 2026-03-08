@@ -32,15 +32,15 @@ export function Hero() {
           </div>
 
           <h1 className="mb-4 text-4xl font-bold leading-tight tracking-tight text-primary-foreground text-balance md:text-5xl lg:text-6xl">
-            {"Psicologia Forense"}
+            {"Psicología Forense"}
             <br />
-            <span className="text-accent">{"y Clinica"}</span>
+            <span className="text-accent">{"y Clínica"}</span>
           </h1>
 
           <p className="mb-8 max-w-md text-base leading-relaxed text-primary-foreground/70 text-pretty">
-            Egresado de la UNAM con Posgrado en Psicologia Forense. Brindo
-            servicios de peritaje psicologico para el ambito legal y terapia
-            clinica Cognitivo Conductual/terapia breve.
+            Egresado de la UNAM con Posgrado en Psicología Forense. Brindo
+            servicios de peritaje psicológico para el ámbito legal y terapia
+            clínica Cognitivo Conductual/terapia breve.
           </p>
 
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -52,7 +52,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="#servicios"
+              href="#servicios-clinicos" // <-- ENLACE CORREGIDO AQUÍ
               className="inline-flex items-center justify-center gap-2 rounded-md border border-primary-foreground/20 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
               Servicios para Abogados
@@ -76,7 +76,7 @@ export function Hero() {
           {/* Technical courses */}
           <div className="mt-4">
             <p className="mb-2 text-xs font-semibold tracking-wide text-primary-foreground/50 uppercase">
-              Cursos Tecnicos
+              Cursos Técnicos
             </p>
             <div className="flex flex-wrap gap-2">
               {[
@@ -107,7 +107,7 @@ export function Hero() {
             <div className="absolute -inset-4 rounded-2xl border border-primary-foreground/10" />
             <Image
               src="/images/octavio-portrait.jpg"
-              alt="Octavio Torres R. - Psicologo Forense y Clinico"
+              alt="Octavio Torres R. - Psicólogo Forense y Clínico"
               width={420}
               height={520}
               className="relative rounded-xl object-cover shadow-2xl"
