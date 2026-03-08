@@ -6,9 +6,28 @@ import './globals.css'
 const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'Octavio Torres R. | Psicologia Forense y Clinica',
-  description:
-    'Psicologo forense y clinico egresado de la UNAM. Terapia cognitivo conductual, peritajes psicologicos y servicios para abogados.',
+  // metadataBase es necesario en Next.js para que las rutas relativas de las imágenes funcionen en el Open Graph
+  metadataBase: new URL('https://www.octaviotrs.com'),
+
+  title: 'Octavio Torres R. | Psicología Clínica, Forense & Tecnología',
+  description: 'Psicoterapia, Psicometría, Periciales y Desarrollo de software.',
+
+  openGraph: {
+    title: 'Octavio Torres R. | Psicología Clínica, Forense & Tecnología',
+    description: 'Psicoterapia, Psicometría, Periciales y Desarrollo de software.',
+    url: 'https://www.octaviotrs.com',
+    siteName: 'Octavio Torres R.',
+    images: [
+      {
+        url: '/images/octavio-portrait.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Octavio Torres R. - Psicología Clínica, Forense & Tecnología',
+      },
+    ],
+    locale: 'es_MX',
+    type: 'website',
+  },
 }
 
 export const viewport: Viewport = {
