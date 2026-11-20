@@ -4,7 +4,23 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
-## 2026-11-20 — MMPI-2 como prueba adicional en `/peritajes` (borrador)
+## 2026-11-20 — Commit + push a `origin/main` (publicado)
+
+- **Qué cambió**
+  - Se hicieron commit y push de todos los cambios de `/peritajes` (incluidas las 3 imágenes y el MMPI-2 aparte) a `origin/main`.
+  - Commit: `558c037` — "Agregar /peritajes con MMPI-2 aparte ($3,500) e imágenes peri0, peri1 y peri2".
+  - Push: `523843d..558c037  main -> main` hacia `https://github.com/budasun/octaviotrswebsite.git`.
+  - Todas las entradas de este CHANGELOG pasan a estado **publicado / desplegado** en el repositorio.
+  - URL de producción a verificar: `https://www.octaviotrs.com/peritajes`. Al momento de este registro, esa URL devolvió **404**, por lo que el despliegue de Vercel todavía no se ha confirmado; el push a GitHub sí se completó correctamente.
+
+- **En qué archivos / rutas**
+  - `CHANGELOG.md` — este registro y el cambio de estado de las entradas anteriores.
+
+- **Estado:** `publicado` / `desplegado` en `origin/main` el 2026-11-20. **Despliegue de Vercel pendiente de confirmación.**
+
+---
+
+## 2026-11-20 — MMPI-2 como prueba adicional en `/peritajes` (publicado)
 
 - **Qué cambió**
   - Se agregó el MMPI-2 como **prueba adicional aparte**, no incluida en el dictamen estándar, en dos lugares de `/peritajes`:
@@ -19,11 +35,11 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - El dueño quiere ofrecer el MMPI-2 como servicio adicional cotizado aparte para daño psicológico complejo, imputabilidad y custodia compleja.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 ---
 
-## 2026-11-20 — Ajuste de título en `/peritajes` (borrador)
+## 2026-11-20 — Ajuste de título en `/peritajes` (publicado)
 
 - **Qué cambió**
   - El título de la sección pasó de "Qué entregas" a "Qué te entrego". El `id` de la sección (`que-entregas`) y el resto del contenido, imágenes, formulario y SEO se mantienen igual.
@@ -35,11 +51,11 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - Cambio solicitado por el dueño del sitio.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 ---
 
-## 2026-11-20 — Layout de imágenes integrado en `/peritajes` (borrador)
+## 2026-11-20 — Layout de imágenes integrado en `/peritajes` (publicado)
 
 - **Qué cambió**
   - Las 3 secciones con imagen pasaron de un diseño apilado/centrado (texto arriba, imagen sola en medio y espacio en blanco a los lados) a **dos columnas integradas** en escritorio, apiladas en móvil. No se cambió ningún texto, honorario, tiempo, formulario, SEO ni el botón de la landing.
@@ -55,11 +71,11 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - El dueño quiere las imágenes integradas con el texto, lado a lado en escritorio, en lugar de apiladas y centradas con espacio blanco a los lados.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 ---
 
-## 2026-11-20 — Imágenes de peritajes agregadas a `/peritajes` (borrador)
+## 2026-11-20 — Imágenes de peritajes agregadas a `/peritajes` (publicado)
 
 - **Qué cambió**
   - Se agregaron las 3 imágenes existentes en `public/images/`, sin renombrarlas ni reemplazarlas por stock:
@@ -76,11 +92,11 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - Dar soporte visual sobrio y profesional a la ruta de peritajes usando únicamente los archivos proporcionados por el dueño.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 ---
 
-## 2026-11-20 — Formulario de `/peritajes` reemplazado por el real de abogados (borrador)
+## 2026-11-20 — Formulario de `/peritajes` reemplazado por el real de abogados (publicado)
 
 - **Qué cambió**
   - Se eliminó el formulario anterior de 6 campos (`nombre_despacho`, `nombre_abogado`, `materia`, `fecha_audiencia`, `whatsapp`, `resumen_caso`) y su componente `components/peritajes-contact-form.tsx`.
@@ -98,11 +114,11 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - El formulario anterior no era el formulario real verificado de la web; se alinea `/peritajes` con el componente y el envío ya existentes, evitando duplicar lógica y manteniendo un solo destino en Formspree.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 ---
 
-## 2026-11-20 — Ruta `/peritajes` + acceso desde la landing (borrador)
+## 2026-11-20 — Ruta `/peritajes` + acceso desde la landing (publicado)
 
 - **Qué cambió**
   - Se creó la ruta `/peritajes` dentro del mismo proyecto Next.js (mismo dominio, mismo despliegue; no se creó subdominio ni proyecto nuevo). Incluye las 8 secciones solicitadas con el texto exacto proporcionado: HERO, ¿Cuándo me necesitas?, Qué entregas, Proceso en 4 pasos, Honorarios (tabla intacta), Por qué Octavio Torres R., Preguntas frecuentes de abogados y Contacto — solo para abogados.
@@ -133,7 +149,7 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
   - Lighthouse local: SEO 1.00, Best Practices 1.00, Accesibilidad 0.96 (único hallazgo: contraste bajo en el `Footer` compartido, preexistente; no se modificó). Se corrigió el contraste en los elementos nuevos.
   - Sin desbordamiento horizontal a 800 px ni en viewport simulado de 375 px (menú colapsado, tabla con scroll interno, formulario visible).
 
-- **Estado:** `borrador` — pendiente de revisión del dueño. **No desplegado.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `558c037` hecho y pusheado a `origin/main`.
 
 - **Pendientes / decisiones del dueño**
   - No se encontró código de Analytics (GA4) ni archivo de verificación de Search Console en el repositorio (`public/` solo contiene `images/`). Si están configurados en Vercel/DNS se heredan al desplegar el mismo proyecto; si son un `<script>` externo, se necesita el ID o la ubicación del script. No se inventó ningún ID.
