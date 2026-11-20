@@ -11,12 +11,12 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
   - Commit: `558c037` — "Agregar /peritajes con MMPI-2 aparte ($3,500) e imágenes peri0, peri1 y peri2".
   - Push: `523843d..558c037  main -> main` hacia `https://github.com/budasun/octaviotrswebsite.git`.
   - Todas las entradas de este CHANGELOG pasan a estado **publicado / desplegado** en el repositorio.
-  - URL de producción a verificar: `https://www.octaviotrs.com/peritajes`. Al momento de este registro, esa URL devolvió **404**, por lo que el despliegue de Vercel todavía no se ha confirmado; el push a GitHub sí se completó correctamente.
+  - URL de producción verificada: `https://www.octaviotrs.com/peritajes`. El despliegue de Vercel se confirmó el 2026-11-20: la ruta responde correctamente y muestra el MMPI-2 en "Qué te entrego" y en Honorarios a $3,500 MXN. Ya no devuelve 404.
 
 - **En qué archivos / rutas**
   - `CHANGELOG.md` — este registro y el cambio de estado de las entradas anteriores.
 
-- **Estado:** `publicado` / `desplegado` en `origin/main` el 2026-11-20. **Despliegue de Vercel pendiente de confirmación.**
+- **Estado:** `publicado` / `desplegado` en `origin/main` el 2026-11-20. **Despliegue de Vercel confirmado** en `https://www.octaviotrs.com/peritajes`.
 
 ---
 
