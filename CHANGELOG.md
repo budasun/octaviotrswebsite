@@ -4,7 +4,7 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
-## 2026-11-20 — Botones de peritajes unificados en la landing (borrador)
+## 2026-11-20 — Botones de peritajes unificados en la landing (publicado)
 
 - **Qué cambió**
   - El botón "Servicios para Abogados" del hero pasó a llamarse exactamente **"Servicio para abogados - Peritajes"** y su enlace cambió de `#servicios-clinicos` a `/peritajes`.
@@ -19,7 +19,7 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 - **Por qué**
   - Evitar dos botones que llevaban a peritajes y dejar un único acceso claro desde la landing.
 
-- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+- **Estado:** `publicado` / `desplegado` el 2026-11-20. Commit `e36947b` ("Unificar botones de peritajes: Servicio para abogados - Peritajes a /peritajes, eliminar duplicado") hecho y pusheado a `origin/main`.
 
 ---
 
