@@ -4,11 +4,12 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
+// Rutas absolutas con hash para que el mismo header funcione también en /peritajes.
 const navLinks = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Libros", href: "#libros" },
-  { label: "Psicométrica IA", href: "#suite-psicometrica" }, // <-- Cambio aplicado aquí
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/#hero" },
+  { label: "Libros", href: "/#libros" },
+  { label: "Psicométrica IA", href: "/#suite-psicometrica" },
+  { label: "Contacto", href: "/#contacto" },
 ]
 
 export function Navbar() {
@@ -17,7 +18,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-card/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="#hero" className="text-lg font-bold tracking-tight text-foreground">
+        <Link href="/#hero" className="text-lg font-bold tracking-tight text-foreground">
           Octavio <span className="text-accent">Torres R.</span>
         </Link>
 
@@ -35,7 +36,7 @@ export function Navbar() {
           ))}
           <li>
             <Link
-              href="#contacto"
+              href="/#contacto"
               className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               Agendar Cita
@@ -70,7 +71,7 @@ export function Navbar() {
             ))}
             <li className="mt-2">
               <Link
-                href="#contacto"
+                href="/#contacto"
                 onClick={() => setOpen(false)}
                 className="block rounded-md bg-primary px-3 py-2 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
               >

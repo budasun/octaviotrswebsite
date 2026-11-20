@@ -4,11 +4,28 @@ import { useState } from "react"
 import { Send, CheckCircle, Clock, Shield } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 
-export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
+interface ContactFormProps {
+  formId?: string
+  sectionId?: string
+  variant?: "landing" | "peritajes"
+  showInfo?: boolean
+}
+
+export function ContactForm({
+  formId = "mykdebzo",
+  sectionId = "contacto",
+  variant = "landing",
+  showInfo = true,
+}: ContactFormProps) {
+  // La variante "peritajes" usa el mismo componente y la misma lógica de envío,
+  // pero fija el tipo de usuario en "Abogado / Profesional" (sin parte de paciente).
+  const isPeritajes = variant === "peritajes"
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showButtonSuccess, setShowButtonSuccess] = useState(false)
-  const [userType, setUserType] = useState<"paciente" | "profesional">("paciente")
+  const [userType, setUserType] = useState<"paciente" | "profesional">(
+    isPeritajes ? "profesional" : "paciente"
+  )
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -81,7 +98,7 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
   if (submitted) {
     return (
       // ESPACIO REDUCIDO: Cambiado de pb-10 a pb-4
-      <section id="contacto" className="bg-background pt-4 pb-4">
+      <section id={sectionId} className="bg-background pt-4 pb-4">
         <div className="mx-auto max-w-2xl px-6 text-center">
           <div className="rounded-xl border border-border bg-card p-12">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10">
@@ -104,26 +121,29 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
   return (
     // ESPACIO REDUCIDO: Cambiado de pb-20 a pb-6
-    <section id="contacto" className="bg-background pt-6 pb-6">
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Header con margen reducido */}
-        <div className="mb-8 text-center">
-          <Reveal>
-            <span className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent uppercase">
-              Contacto
-            </span>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
-              Ponte en Contacto
-            </h2>
-            <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
-              Ya sea que busques iniciar un proceso terapeutico o requieras
-              servicios periciales, estoy aqui para ayudarte.
-            </p>
-          </Reveal>
-        </div>
+    <section id={sectionId} className="bg-background pt-6 pb-6">
+      <div className={`mx-auto px-6 ${showInfo ? "max-w-6xl" : "max-w-4xl"}`}>
+        {/* Header con margen reducido (solo en la landing; /peritajes ya tiene su propio título) */}
+        {!isPeritajes && (
+          <div className="mb-8 text-center">
+            <Reveal>
+              <span className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent uppercase">
+                Contacto
+              </span>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
+                Ponte en Contacto
+              </h2>
+              <p className="mx-auto max-w-xl text-muted-foreground leading-relaxed">
+                Ya sea que busques iniciar un proceso terapeutico o requieras
+                servicios periciales, estoy aqui para ayudarte.
+              </p>
+            </Reveal>
+          </div>
+        )}
 
         <div className="grid gap-12 md:grid-cols-5">
           {/* Info column */}
+          {showInfo && (
           <div className="md:col-span-2">
             <Reveal delay={200}>
               <div className="rounded-xl bg-primary p-8 text-primary-foreground shadow-lg">
@@ -183,42 +203,45 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
               </div>
             </Reveal>
           </div>
+          )}
 
           {/* Form column con Borde Superior de Acento y Sombra Profunda */}
-          <div className="md:col-span-3">
+          <div className={showInfo ? "md:col-span-3" : "md:col-span-5"}>
             <Reveal delay={400}>
               <form
                 onSubmit={handleSubmit}
                 className="rounded-xl border-t-4 border-t-accent border-x border-b border-border bg-card p-8 shadow-xl shadow-accent/5"
               >
-                {/* User Type Switch */}
-                <div className="mb-8 flex rounded-lg bg-muted p-1">
-                  <button
-                    type="button"
-                    onClick={() => setUserType("paciente")}
-                    className={`flex-1 rounded-md py-2.5 text-sm font-semibold transition-all ${userType === "paciente"
-                      ? "bg-background text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                      }`}
-                  >
-                    Soy Paciente
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setUserType("profesional")}
-                    className={`flex-1 rounded-md py-2.5 text-sm font-semibold transition-all ${userType === "profesional"
-                      ? "bg-background text-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                      }`}
-                  >
-                    Soy Abogado / Colega
-                  </button>
-                </div>
+                {/* User Type Switch: solo en la landing. En /peritajes se usa directamente la rama de abogado. */}
+                {!isPeritajes && (
+                  <div className="mb-8 flex rounded-lg bg-muted p-1">
+                    <button
+                      type="button"
+                      onClick={() => setUserType("paciente")}
+                      className={`flex-1 rounded-md py-2.5 text-sm font-semibold transition-all ${userType === "paciente"
+                        ? "bg-background text-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                        }`}
+                    >
+                      Soy Paciente
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setUserType("profesional")}
+                      className={`flex-1 rounded-md py-2.5 text-sm font-semibold transition-all ${userType === "profesional"
+                        ? "bg-background text-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                        }`}
+                    >
+                      Soy Abogado / Colega
+                    </button>
+                  </div>
+                )}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div className="sm:col-span-2">
                     <label htmlFor="nombre" className="mb-1.5 block text-sm font-medium text-foreground">
-                      Nombre completo <span className="text-destructive">*</span>
+                      {isPeritajes ? "Nombre completo*" : <>Nombre completo <span className="text-destructive">*</span></>}
                     </label>
                     <input
                       type="text"
@@ -234,7 +257,7 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
                   <div>
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-                      Correo electronico <span className="text-destructive">*</span>
+                      {isPeritajes ? "Correo electronico*" : <>Correo electronico <span className="text-destructive">*</span></>}
                     </label>
                     <input
                       type="email"
@@ -250,7 +273,7 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
                   <div>
                     <label htmlFor="telefono" className="mb-1.5 block text-sm font-medium text-foreground">
-                      Telefono <span className="text-destructive">*</span>
+                      {isPeritajes ? "Telefono*" : <>Telefono <span className="text-destructive">*</span></>}
                     </label>
                     <input
                       type="tel"
@@ -303,7 +326,9 @@ export function ContactForm({ formId = "mykdebzo" }: { formId?: string }) {
 
                   <div className="sm:col-span-2">
                     <label htmlFor="motivo" className="mb-1.5 block text-sm font-medium text-foreground">
-                      {userType === "paciente" ? "Por qué buscas terapia?" : "Motivo de la consulta"} <span className="text-destructive">*</span>
+                      {isPeritajes
+                        ? "Motivo de la consulta*"
+                        : <>{userType === "paciente" ? "Por qué buscas terapia?" : "Motivo de la consulta"} <span className="text-destructive">*</span></>}
                     </label>
                     <textarea
                       id="motivo"

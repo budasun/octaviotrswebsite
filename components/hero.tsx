@@ -57,6 +57,13 @@ export function Hero() {
             >
               Servicios para Abogados
             </Link>
+            <Link
+              href="/peritajes"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-accent px-6 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              Para Abogados — Peritajes
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </div>
 
           {/* Credential badges */}
