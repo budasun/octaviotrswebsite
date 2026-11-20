@@ -4,6 +4,25 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-20 — Botones de peritajes unificados en la landing (borrador)
+
+- **Qué cambió**
+  - El botón "Servicios para Abogados" del hero pasó a llamarse exactamente **"Servicio para abogados - Peritajes"** y su enlace cambió de `#servicios-clinicos` a `/peritajes`.
+  - Se eliminó por completo el botón **"Para Abogados — Peritajes"**: ya no está en el DOM de la landing, ni oculto.
+  - El botón "Agendar Terapia" quedó sin cambios. En el hero de la landing quedan exactamente 2 botones: "Agendar Terapia" y "Servicio para abogados - Peritajes".
+  - No se tocó `/peritajes` (contenido, imágenes, formulario, honorarios, tiempos ni SEO). No se agregaron WhatsApp, teléfono, cédula con número, Stripe ni videollamadas.
+
+- **En qué archivos / rutas**
+  - `components/hero.tsx` — enlace y texto del botón de peritajes, y eliminación del botón duplicado.
+  - `CHANGELOG.md` — este registro. Las entradas anteriores conservan el texto original porque documentan el estado en ese momento.
+
+- **Por qué**
+  - Evitar dos botones que llevaban a peritajes y dejar un único acceso claro desde la landing.
+
+- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+
+---
+
 ## 2026-11-20 — Commit + push a `origin/main` (publicado)
 
 - **Qué cambió**

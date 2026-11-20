@@ -52,17 +52,10 @@ export function Hero() {
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="#servicios-clinicos" // <-- ENLACE CORREGIDO AQUÍ
+              href="/peritajes"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-primary-foreground/20 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
             >
-              Servicios para Abogados
-            </Link>
-            <Link
-              href="/peritajes"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-accent px-6 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              Para Abogados — Peritajes
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Servicio para abogados - Peritajes
             </Link>
           </div>
 
