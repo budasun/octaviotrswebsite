@@ -7,7 +7,7 @@ import { Reveal } from "@/components/reveal"
 interface ContactFormProps {
   formId?: string
   sectionId?: string
-  variant?: "landing" | "peritajes"
+  variant?: "landing" | "peritajes" | "terapia"
   showInfo?: boolean
 }
 
@@ -19,7 +19,10 @@ export function ContactForm({
 }: ContactFormProps) {
   // La variante "peritajes" usa el mismo componente y la misma lógica de envío,
   // pero fija el tipo de usuario en "Abogado / Profesional" (sin parte de paciente).
+  // La variante "terapia" fija el tipo en "Paciente" y oculta el selector, para
+  // reutilizar el mismo formulario y el mismo destino sin mezclar peritajes.
   const isPeritajes = variant === "peritajes"
+  const isTerapia = variant === "terapia"
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showButtonSuccess, setShowButtonSuccess] = useState(false)
@@ -123,8 +126,8 @@ export function ContactForm({
     // ESPACIO REDUCIDO: Cambiado de pb-20 a pb-6
     <section id={sectionId} className="bg-background pt-6 pb-6">
       <div className={`mx-auto px-6 ${showInfo ? "max-w-6xl" : "max-w-4xl"}`}>
-        {/* Header con margen reducido (solo en la landing; /peritajes ya tiene su propio título) */}
-        {!isPeritajes && (
+        {/* Header con margen reducido (solo en la landing; /peritajes y la página de terapia tienen su propio título) */}
+        {!isPeritajes && !isTerapia && (
           <div className="mb-8 text-center">
             <Reveal>
               <span className="mb-4 inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-accent uppercase">
@@ -212,8 +215,8 @@ export function ContactForm({
                 onSubmit={handleSubmit}
                 className="rounded-xl border-t-4 border-t-accent border-x border-b border-border bg-card p-8 shadow-xl shadow-accent/5"
               >
-                {/* User Type Switch: solo en la landing. En /peritajes se usa directamente la rama de abogado. */}
-                {!isPeritajes && (
+                {/* User Type Switch: solo en la landing. En /peritajes se usa la rama de abogado y en la página de terapia la de paciente. */}
+                {!isPeritajes && !isTerapia && (
                   <div className="mb-8 flex rounded-lg bg-muted p-1">
                     <button
                       type="button"

@@ -4,6 +4,94 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-20 — laptop.jpg reubicada antes del título de "Proceso en 4 pasos" (borrador)
+
+- **Qué cambió**
+  - Se movió **solo la imagen** `laptop.jpg` dentro de la sección "Proceso en 4 pasos" de `/terapia-cognitivo-conductual-online`: ya no está al lado del texto en dos columnas, sino **antes del título**, como imagen de apertura a todo el ancho del contenedor de la sección, centrada y con margen arriba y abajo.
+  - Los 4 pasos volvieron a su layout original (dos columnas en escritorio), sin cambios en su texto ni contenido.
+  - Se mantiene el mismo archivo `public/images/laptop.jpg` (ruta en código `/images/laptop.jpg`), con el mismo alt "Sesión de terapia online por videollamada", `next/image`, `loading="lazy"` y proporción original. En móvil la imagen también va antes del título, a todo el ancho, sin desbordes.
+  - El hero con `peri0.jpeg` y el resto de la página (textos, precios, títulos, SEO, botones y formulario) quedan intactos.
+
+- **En qué archivos / rutas**
+  - `app/terapia-cognitivo-conductual-online/page.tsx` — sección "Proceso en 4 pasos".
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - El dueño quiere la imagen como apertura visual de la sección, no integrada al lado de los pasos.
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
+## 2026-11-20 — laptop.jpg junto a "Proceso en 4 pasos" en terapia (borrador)
+
+- **Qué cambió**
+  - Se agregó `public/images/laptop.jpg` (nombre exacto, 6144×3456) como imagen de la sección "Proceso en 4 pasos" de `/terapia-cognitivo-conductual-online`, con `next/image`, `loading="lazy"`, proporción original, `object-contain` y alt "Sesión de terapia online por videollamada".
+  - Layout de dos columnas en escritorio: los 4 pasos a la izquierda (~55 %) y la imagen a la derecha (~45 %), integrados y alineados al centro. En móvil (375 px) la imagen va arriba del texto, sin desbordamiento horizontal.
+  - El hero de terapia conserva `peri0.jpeg` con su texto, botón y credenciales intactos. No se tocó `/peritajes` ni su hero con `peri0.jpeg`.
+  - No se cambiaron textos, precios, secciones, SEO, botones ni el formulario.
+
+- **En qué archivos / rutas**
+  - `app/terapia-cognitivo-conductual-online/page.tsx` — bloque de "Proceso en 4 pasos".
+  - `public/images/laptop.jpg` — imagen nueva, sin seguimiento en git, pendiente de incluir en el `git add`.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Mostrar una imagen de la experiencia de terapia online junto al proceso de trabajo, sin sustituir la foto del hero.
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
+## 2026-11-20 — Ajuste de texto en Precios de terapia (borrador)
+
+- **Qué cambió**
+  - Se quitaron las palabras "precio de gancho" de la fila "Primera sesión" en la tabla de Precios de `/terapia-cognitivo-conductual-online`. La fila queda exactamente: `$500 MXN (evaluación + formulación, solo una vez)`.
+  - No cambian las cifras ($600 MXN, $2,500 MXN, $500 MXN), la duración de 50 min, las otras filas ni el resto de la página.
+
+- **En qué archivos / rutas**
+  - `app/terapia-cognitivo-conductual-online/page.tsx` — celda del honorario de la primera sesión.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Cambio solicitado por el dueño del sitio.
+
+- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.**
+
+---
+
+## 2026-11-20 — Nueva ruta de terapia cognitivo-conductual online (borrador)
+
+- **Qué cambió**
+  - Se creó la ruta `/terapia-cognitivo-conductual-online` dentro del mismo proyecto Next.js y el mismo despliegue (sin subdominio ni proyecto nuevo). Reutiliza el diseño, tipografía, colores, Navbar, Footer, metadata base y Open Graph del dominio principal.
+  - SEO exacto: title "Terapia Cognitivo-Conductual Online | Psicólogo UNAM — Octavio Torres R." y la meta description proporcionada; canonical y Open Graph apuntan a la nueva ruta. Palabras clave cubiertas de forma natural: terapia cognitivo conductual online, psicólogo online, TCC online, terapia online ansiedad, terapia online depresión.
+  - Página responsive con 10 secciones: HERO, ¿Qué es la TCC?, ¿Para quién es?, ¿Cómo funciona online?, Proceso en 4 pasos, Qué incluye, Precios, Por qué con Octavio Torres R., Preguntas frecuentes y Contacto. Texto del brief sin reescribir; precios exactos ($600 MXN suelta, $2,500 MXN paquete de 5, $500 MXN primera sesión), duración de 50 min y nota al pie intactos.
+  - El hero usa `/images/peri0.jpeg` **solo como marcador provisional** con alt de terapia ("Octavio Torres R., psicólogo clínico"). Pendiente: reemplazar por la foto nueva de terapia que Sha está buscando, en una tarea aparte.
+  - El botón "Agendar Terapia" de la landing ahora enlaza a `/terapia-cognitivo-conductual-online` (antes `#contacto`). El botón "Servicio para abogados - Peritajes" y `/peritajes` no se tocaron.
+  - Se agregó `/terapia-online` como redirección permanente a la ruta larga; no es una página aparte.
+  - Contacto: se reutiliza el componente existente con una nueva variante `terapia` que fija la rama de paciente y oculta el selector "Soy Paciente / Soy Abogado". Misma lógica y mismo destino Formspree (`mykdebzo`), sin envíos de prueba.
+  - No se publicaron teléfono, correo personal, número de cédula, WhatsApp, Stripe ni agenda de videollamada. No se mezcló peritajes (sin balanza, dashboard ni MMPI en esta página).
+
+- **En qué archivos / rutas**
+  - `app/terapia-cognitivo-conductual-online/page.tsx` — página nueva.
+  - `components/contact-form.tsx` — variante `terapia` del formulario existente.
+  - `components/hero.tsx` — destino del botón "Agendar Terapia".
+  - `next.config.mjs` — redirección `/terapia-online`.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Dar a las personas que buscan terapia online una página propia, cálida y enfocada en su proceso, separada del público de peritajes.
+
+- **Pendiente / requiere decisión del dueño**
+  - Confirmar o ajustar la redirección corta `/terapia-online`.
+  - Reemplazar la imagen provisional del hero cuando llegue la foto nueva de terapia.
+  - No hay IDs de Analytics ni Search Console en el código actual; no se agregó ninguno. Se reutiliza el layout global existente.
+  - El Footer compartido incluye `contacto@octaviotrs.com`, que ya estaba en la web. No se quitó para no romper la landing actual; confirmar si debe ocultarse también en esta página.
+
+- **Estado:** `borrador`. **Sin commit, sin push y sin deploy.** No se desplegará sin confirmación explícita.
+
+---
+
 ## 2026-11-20 — Botones de peritajes unificados en la landing (publicado)
 
 - **Qué cambió**

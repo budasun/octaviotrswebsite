@@ -45,7 +45,7 @@ export function Hero() {
 
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
-              href="#contacto"
+              href="/terapia-cognitivo-conductual-online"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
             >
               Agendar Terapia
