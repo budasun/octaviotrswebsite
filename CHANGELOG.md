@@ -4,6 +4,30 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-20 — SEO orgánico de terapia, robots.txt y sitemap.xml (borrador)
+
+- **Qué cambió**
+  - `/terapia-cognitivo-conductual-online`: nueva meta description exacta de 151 caracteres; el title se mantuvo intacto. Canonical absoluto `https://www.octaviotrs.com/terapia-cognitivo-conductual-online` (con www), `robots: index, follow`, Open Graph con og:title, og:description, og:url, og:type `website` y og:image `laptop.jpg` con sus dimensiones reales del archivo (6144×3456). Twitter `summary_large_image` con la misma imagen. No se usaron imágenes de peritajes.
+  - Se agregaron datos estructurados JSON-LD en la página: `ProfessionalService` (nombre "Octavio Torres R.", descripción igual a la meta description, área de servicio México, idiomas Español e Inglés, rango `$600 - $2,500 MXN`), `FAQPage` con las 6 preguntas y respuestas exactas que ya estaban en la página, y `BreadcrumbList` Inicio > Terapia Cognitivo-Conductual Online. No se incluyeron teléfono, correo, dirección ni número de cédula.
+  - Se creó `public/robots.txt` con `User-agent: *`, `Allow: /` y `Sitemap: https://www.octaviotrs.com/sitemap.xml`.
+  - Se creó `public/sitemap.xml` con solo 3 URLs: inicio, `/peritajes` y `/terapia-cognitivo-conductual-online`, con `lastmod` 2026-11-20, `changefreq` y prioridades (inicio 1.0, peritajes y terapia 0.9). No se incluyó `/terapia-online` porque es solo una redirección.
+  - No se cambió ningún contenido visible, texto, precio, sección, botón ni formulario. La landing principal (`/`) y `/peritajes` conservan sus metaetiquetas tal cual; no se editó el metadata global del layout raíz ni `components/contact-form.tsx`.
+
+- **En qué archivos / rutas**
+  - `app/terapia-cognitivo-conductual-online/page.tsx` — metadata, JSON-LD.
+  - `public/robots.txt` y `public/sitemap.xml` — nuevos.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Mejorar el SEO orgánico sin modificar lo que ve el visitante y dar a los buscadores una meta description más corta, datos estructurados y un sitemap con las tres URLs reales.
+
+- **Pendiente**
+  - Verificación en Google Search Console (no hay token ni ID de verificación en el proyecto; no se inventó ninguno).
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
 ## 2026-11-20 — laptop.jpg reubicada antes del título de "Proceso en 4 pasos" (borrador)
 
 - **Qué cambió**

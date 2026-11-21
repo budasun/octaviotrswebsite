@@ -11,27 +11,37 @@ const pageTitle =
   "Terapia Cognitivo-Conductual Online | Psicólogo UNAM — Octavio Torres R."
 
 const pageDescription =
-  "Terapia cognitivo-conductual online con psicólogo clínico UNAM, +15 años de experiencia. Ansiedad, depresión y estrés, en sesiones de 50 minutos por videollamada, desde donde estés. Agenda tu primera sesión."
+  "Terapia cognitivo-conductual online con psicólogo UNAM, +15 años. Ansiedad, depresión y estrés en sesiones de 50 min por videollamada. Agenda tu primera sesión."
+
+const canonicalUrl =
+  "https://www.octaviotrs.com/terapia-cognitivo-conductual-online"
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "/terapia-cognitivo-conductual-online" },
+  alternates: { canonical: canonicalUrl },
+  robots: { index: true, follow: true },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    url: "/terapia-cognitivo-conductual-online",
+    url: canonicalUrl,
     siteName: "Octavio Torres R.",
     locale: "es_MX",
     type: "website",
     images: [
       {
-        url: "/images/peri0.jpeg",
-        width: 572,
-        height: 1024,
-        alt: "Octavio Torres R., psicólogo clínico",
+        url: "/images/laptop.jpg",
+        width: 6144,
+        height: 3456,
+        alt: "Sesión de terapia online por videollamada",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: ["/images/laptop.jpg"],
   },
 }
 
@@ -114,6 +124,45 @@ const faqs = [
   },
 ]
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Octavio Torres R.",
+    description: pageDescription,
+    areaServed: "México",
+    availableLanguage: ["Español", "Inglés"],
+    priceRange: "$600 - $2,500 MXN",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://www.octaviotrs.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Terapia Cognitivo-Conductual Online",
+        item: canonicalUrl,
+      },
+    ],
+  },
+]
+
 function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
   return (
     <h2
@@ -128,6 +177,12 @@ function SectionHeading({ id, children }: { id: string; children: React.ReactNod
 export default function TerapiaCognitivoConductualOnlinePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Navbar />
 
       <main id="contenido" className="pt-16">
