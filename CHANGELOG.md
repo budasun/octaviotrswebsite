@@ -4,6 +4,28 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-20 — Archivo de verificación de Google Search Console (borrador)
+
+- **Qué cambió**
+  - Se agregó el archivo `public/google9627be90c09f62c5.html` con el nombre exacto y su contenido original sin modificar: `google-site-verification: google9627be90c09f62c5.html`.
+  - Al estar en `public/`, Next.js lo sirve tal cual en la raíz: verificado en local con `200` y `Content-Type: text/html; charset=UTF-8` en `http://localhost:3000/google9627be90c09f62c5.html`. No se movió de carpeta ni se convirtió en ruta/página.
+  - No se tocó la landing, `/peritajes`, `/terapia-cognitivo-conductual-online`, sus metaetiquetas, formularios, robots.txt ni sitemap.xml.
+  - **No eliminar este archivo en el futuro**: Google lo exige para mantener la verificación del dominio.
+
+- **En qué archivos / rutas**
+  - `public/google9627be90c09f62c5.html` — archivo nuevo, sin seguimiento en git, pendiente de incluir en el `git add`.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Completar la verificación de propiedad del sitio en Google Search Console.
+
+- **Pendiente**
+  - La URL en vivo `https://www.octaviotrs.com/google9627be90c09f62c5.html` todavía devuelve 404 porque este cambio aún no se ha desplegado. Tras el deploy, hay que pulsar "Verificar" en Search Console (no se hizo desde aquí).
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
 ## 2026-11-20 — SEO orgánico de terapia, robots.txt y sitemap.xml (borrador)
 
 - **Qué cambió**
