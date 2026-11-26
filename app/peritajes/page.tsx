@@ -192,7 +192,7 @@ export default function PeritajesPage() {
                   href="#contacto-abogados"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-accent/90"
                 >
-                  Formulario de contacto — solo para abogados
+                  Formulario de contacto
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
@@ -386,11 +386,11 @@ export default function PeritajesPage() {
           </div>
         </section>
 
-        {/* 8. CONTACTO — SOLO PARA ABOGADOS */}
+        {/* 8. CONTACTO */}
         <section aria-labelledby="contacto-abogados-titulo" className="bg-background pb-16 md:pb-24">
           <div className="mx-auto max-w-4xl px-6">
             <h2 id="contacto-abogados-titulo" className="mb-4 text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">
-              Contacto — solo para abogados
+              Contacto
             </h2>
             <p className="mb-2 text-base leading-relaxed text-foreground/80">
               Respuesta en menos de 24 horas. Confidencialidad garantizada.

@@ -4,6 +4,22 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-25 — Texto de peritajes sin restricción de abogados (borrador)
+
+- **Qué cambió**
+  - En `/peritajes` se eliminó la expresión que restringía el contacto a abogados: el botón del hero pasó a decir **"Formulario de contacto"** y el título de la sección 8 pasó a decir **"Contacto"**. También se limpió el comentario interno de esa sección.
+  - Se conservan **todas** las apariciones de **"Servicio para abogados"**, en especial el botón "Servicio para abogados - Peritajes" del hero de la landing. También siguen igual "Perito psicólogo para abogados" y "Preguntas frecuentes de abogados" en `/peritajes`.
+  - Se ajustaron las dos referencias antiguas del CHANGELOG para que no quede esa frase en el registro histórico.
+  - No se cambió el formulario ni su destino Formspree `https://formspree.io/f/mykdebzo`; no se tocaron precios, secciones, botones existentes, meta tags, canonical, OG, JSON-LD, robots.txt ni sitemap.xml.
+
+- **En qué archivos / rutas**
+  - `app/peritajes/page.tsx` — botón del hero, título de la sección de contacto y comentario interno.
+  - `CHANGELOG.md` — este registro y limpieza de referencias anteriores.
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
 ## 2026-11-25 — Botón flotante de WhatsApp en todas las páginas (borrador)
 
 - **Qué cambió**
@@ -324,7 +340,7 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 ## 2026-11-20 — Ruta `/peritajes` + acceso desde la landing (publicado)
 
 - **Qué cambió**
-  - Se creó la ruta `/peritajes` dentro del mismo proyecto Next.js (mismo dominio, mismo despliegue; no se creó subdominio ni proyecto nuevo). Incluye las 8 secciones solicitadas con el texto exacto proporcionado: HERO, ¿Cuándo me necesitas?, Qué entregas, Proceso en 4 pasos, Honorarios (tabla intacta), Por qué Octavio Torres R., Preguntas frecuentes de abogados y Contacto — solo para abogados.
+  - Se creó la ruta `/peritajes` dentro del mismo proyecto Next.js (mismo dominio, mismo despliegue; no se creó subdominio ni proyecto nuevo). Incluye las 8 secciones solicitadas con el texto exacto proporcionado: HERO, ¿Cuándo me necesitas?, Qué entregas, Proceso en 4 pasos, Honorarios (tabla intacta), Por qué Octavio Torres R., Preguntas frecuentes de abogados y Contacto.
   - Se implementó un formulario exclusivo para abogados con los campos: Nombre del despacho, Nombre del abogado, Materia (familiar / penal / civil / otra), Fecha de audiencia (si la hay), WhatsApp y Resumen breve del caso. Envía al **mismo destino** que el formulario actual: `https://formspree.io/f/mykdebzo` (ID `mykdebzo`, sin cambios).
   - Se agregó un botón visible **"Para Abogados — Peritajes"** en la landing actual, enlazando a `/peritajes`, sin reescribir el resto de la landing.
   - Se ajustaron los `href` del header compartido (`#hero` → `/#hero`, etc.) para que el mismo componente funcione tanto en `/` como en `/peritajes`. El comportamiento en la landing es equivalente.
@@ -335,7 +351,7 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 - **En qué archivos / rutas**
   - `app/peritajes/page.tsx` (nuevo) — página y metadata de la ruta.
-  - `components/peritajes-contact-form.tsx` (nuevo) — formulario solo para abogados.
+  - `components/peritajes-contact-form.tsx` (nuevo) — formulario de peritajes.
   - `components/hero.tsx` — botón nuevo "Para Abogados — Peritajes".
   - `components/navbar.tsx` — href absolutos para reutilizar el header en `/peritajes`.
   - `CHANGELOG.md` (nuevo) — este registro.
