@@ -4,6 +4,56 @@ Registro de todos los cambios del sitio. Convención: primero **borrador**, lueg
 
 ---
 
+## 2026-11-25 — Botón flotante de WhatsApp en todas las páginas (borrador)
+
+- **Qué cambió**
+  - Se agregó un botón flotante de WhatsApp fijo abajo a la derecha, visible en móvil y escritorio, con el icono oficial de WhatsApp en SVG (sin emoji). Al tocarlo abre el chat en una pestaña nueva (`target="_blank"`, `rel="noopener noreferrer"`) con `aria-label="Contactar por WhatsApp"`, sin enviar nada automáticamente: el visitante ve el mensaje pre-escrito, lo completa y lo envía.
+  - Número profesional exclusivo: `+52 56 1593 6383`, enlace base `https://wa.me/5215615936383`. No es el WhatsApp personal de Octavio; no se usa WhatsApp Business, no hay chip activo, no recibe llamadas fuera de WhatsApp ni mensaje de bienvenida automático.
+  - Mensaje pre-escrito exacto por página:
+    - `/` → `https://wa.me/5215615936383?text=Hola%2C%20te%20contacto%20porque...` ("Hola, te contacto porque...")
+    - `/terapia-cognitivo-conductual-online` → `https://wa.me/5215615936383?text=Hola%2C%20busco%20terapia%20online%20porque...` ("Hola, busco terapia online porque...")
+    - `/peritajes` → `https://wa.me/5215615936383?text=Hola%2C%20necesito%20un%20peritaje%20psicol%C3%B3gico%20para...` ("Hola, necesito un peritaje psicológico para...")
+  - En peritajes no se dice "soy abogado": el mensaje es neutral para quien busque un peritaje.
+  - El botón se monta desde el layout raíz para que aparezca en las tres rutas. Se ubica con margen superior en móvil (`bottom-20`) para no tapar los botones principales ni el formulario, y `bottom-6` en escritorio. No se modificó el diseño, los colores del resto del sitio ni las tipografías.
+
+- **En qué archivos / rutas**
+  - `components/whatsapp-button.tsx` — componente cliente nuevo con el enlace por ruta.
+  - `app/layout.tsx` — se monta `<WhatsAppButton />` dentro de `<body>`; **no se tocó** el metadata global.
+  - `CHANGELOG.md` — este registro.
+
+- **NO se tocó**
+  - Textos, precios, secciones ni botones existentes; `components/contact-form.tsx` y su destino Formspree `https://formspree.io/f/mykdebzo` (ramas paciente y abogado/peritajes); meta tags, title, description, canonical, OG, JSON-LD, `robots.txt` ni `sitemap.xml`.
+  - No se agregó ningún enlace `tel:`, no se muestra el número como texto para llamar y no se puso en el footer ni en las secciones de contacto como teléfono.
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
+## 2026-11-25 — Enlaces sociales del footer a Diván Psyco + Instagram y Threads (borrador)
+
+- **Qué cambió**
+  - En `components/footer.tsx` se actualizaron solo los enlaces sociales del pie de página a la marca Diván Psyco:
+    - Facebook: `https://www.facebook.com/share/18Prwg2cwV/` → `https://www.facebook.com/divanpsyco`.
+    - TikTok: `https://www.tiktok.com/@divanpsicomagico?_r=1&_t=ZS-93soKNo45rA` → `https://www.tiktok.com/@divanpsyco` (sin parámetros de rastreo).
+    - YouTube: `https://www.youtube.com/@AlquimiaTranspersonal` → `https://www.youtube.com/@divanpsyco`.
+    - LinkedIn: **sin cambios**, se conserva `https://www.linkedin.com/in/octavio-trs-psicologo`.
+  - Se agregaron 2 íconos nuevos junto a los existentes, con el mismo estilo y tamaño (contenedor `h-8 w-8`, ícono `h-4 w-4`, mismos colores y estados hover): Instagram → `https://www.instagram.com/divanpsyco` y Threads → `https://www.threads.com/@divanpsyco`.
+  - No se cambió diseño, colores, textos ni ninguna otra sección. El resto del footer queda intacto: "Octavio Torres R.", "Psicólogo forense y clínico egresado de la UNAM...", Inicio/Libros/Servicios, `contacto@octaviotrs.com` y "© 2026 Octavio Torres R. Todos los derechos reservados."
+
+- **En qué archivos / rutas**
+  - `components/footer.tsx` — arreglo `socialLinks` y componentes `InstagramIcon` / `ThreadsIcon`.
+  - `CHANGELOG.md` — este registro.
+
+- **Por qué**
+  - Unificar la presencia social del sitio con la marca Diván Psyco, confirmado por Octavio el 25 de noviembre de 2026.
+
+- **Verificación**
+  - Los 6 href finales del footer son: Facebook `https://www.facebook.com/divanpsyco`, LinkedIn `https://www.linkedin.com/in/octavio-trs-psicologo`, TikTok `https://www.tiktok.com/@divanpsyco`, YouTube `https://www.youtube.com/@divanpsyco`, Instagram `https://www.instagram.com/divanpsyco` y Threads `https://www.threads.com/@divanpsyco`. Ninguno contiene `divanpsicomagico`, `divan_psico`, `/share/` ni `@AlquimiaTranspersonal`.
+
+- **Estado:** `borrador` hasta la revisión del dueño. **Sin commit, sin push y sin deploy.**
+
+---
+
 ## 2026-11-20 — Archivo de verificación de Google Search Console (borrador)
 
 - **Qué cambió**

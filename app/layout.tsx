@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
+import { WhatsAppButton } from '@/components/whatsapp-button'
 
 const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -41,7 +42,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={_inter.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   )
 }

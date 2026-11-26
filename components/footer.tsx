@@ -74,10 +74,47 @@ function YoutubeIcon({ className }: { className?: string }) {
   )
 }
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  )
+}
+
+function ThreadsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M12 21a9 9 0 1 1 9-9c0 4.5-3.2 7-7.2 7-2.6 0-4.6-1.6-4.6-4 0-2.2 1.8-3.9 4.2-3.9 2 0 3.4 1.1 3.9 2.5" />
+      <path d="M12 10.5a1.5 1.5 0 1 0 1.5 1.5" />
+    </svg>
+  )
+}
+
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://www.facebook.com/share/18Prwg2cwV/",
+    href: "https://www.facebook.com/divanpsyco",
     icon: FacebookIcon,
   },
   {
@@ -87,13 +124,23 @@ const socialLinks = [
   },
   {
     label: "TikTok",
-    href: "https://www.tiktok.com/@divanpsicomagico?_r=1&_t=ZS-93soKNo45rA",
+    href: "https://www.tiktok.com/@divanpsyco",
     icon: TikTokIcon,
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/@AlquimiaTranspersonal",
+    href: "https://www.youtube.com/@divanpsyco",
     icon: YoutubeIcon,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/divanpsyco",
+    icon: InstagramIcon,
+  },
+  {
+    label: "Threads",
+    href: "https://www.threads.com/@divanpsyco",
+    icon: ThreadsIcon,
   },
 ]
 
